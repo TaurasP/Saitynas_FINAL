@@ -7,7 +7,7 @@ import java.io.IOException;
 import java.util.List;
 
 public interface JokeService {
-    String getRandomJoke() throws IOException, JSONException;
+    Joke getRandomJoke() throws IOException, JSONException;
     List<Joke> getAllJokes();
     void saveJoke(Joke joke);
     Joke getJokeById(Integer id);

@@ -11,12 +11,11 @@ import java.io.IOException;
 @RestController
 @RequestMapping("/api")
 public class JokeRESTController {
-
     @Autowired
     JokeService jokeService;
 
     @RequestMapping("/joke")
     public String getRandomJoke() throws IOException, JSONException {
-        return jokeService.getRandomJoke();
+        return jokeService.getRandomJoke().getText();
     }
 }

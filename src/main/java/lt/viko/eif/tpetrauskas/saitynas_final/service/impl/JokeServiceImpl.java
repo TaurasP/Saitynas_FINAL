@@ -1,6 +1,5 @@
 package lt.viko.eif.tpetrauskas.saitynas_final.service.impl;
 
-
 import lt.viko.eif.tpetrauskas.saitynas_final.model.Joke;
 import lt.viko.eif.tpetrauskas.saitynas_final.repository.JokeRepository;
 import lt.viko.eif.tpetrauskas.saitynas_final.service.JokeService;
@@ -50,7 +49,7 @@ public class JokeServiceImpl implements JokeService {
     }
 
     @Override
-    public String getRandomJoke() throws IOException, JSONException {
+    public Joke getRandomJoke() throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
@@ -65,6 +64,8 @@ public class JokeServiceImpl implements JokeService {
         String jsonData = response.body().string();
         JSONObject jsonObject = new JSONObject(jsonData);
 
-        return jsonObject.getString("text");
+        Joke joke = new Joke();
+        joke.setText(jsonObject.getString("text"));
+        return joke;
     }
 }
