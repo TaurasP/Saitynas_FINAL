@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Juokeliai</title>
+    <script src="https://kit.fontawesome.com/008dc3c607.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col-12">
+                <h2 th:if="${joke.id == null}" class="text-center" style="padding-top: 30px;">Juokelio kūrimas</h2>
+                <h2 th:unless="${joke.id == null}" class="text-center" style="padding-top: 30px;">Juokelio redagavimas</h2>
+            </div>
+        </div>
+        <br/>
+
+        <div>
+            <form action="#" th:action="@{/jokes/save}" th:object="${joke}" method="POST">
+                <input th:if="${joke.id != null}" type="hidden" th:field="*{id}"/>
+                <a> Tekstas </a>
+                <!--<input type="text" th:field="*{text}"
+                       required placeholder="Name" class="form-control mb-4 col-4">-->
+
+                <textarea rows="10" cols="120" class="col-12 text-center" style="border: 1px grey solid; margin-bottom: 10px;" type="text" th:field="*{text}"></textarea>
+
+                <!-- Save button -->
+                <button th:if="${joke.id == null}" type="submit" class="btn btn-info col-12 text-center"> Išsaugoti </button>
+                <!-- Update button -->
+                <button th:unless="${joke.id == null}" type="submit" class="btn btn-info col-12 text-center"> Atnaujinti </button>
+            </form>
+        </div>
+
+    </div>
+</body>
+</html>

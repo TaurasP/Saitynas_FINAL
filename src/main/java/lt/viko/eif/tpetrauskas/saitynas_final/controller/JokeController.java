@@ -31,6 +31,18 @@ public class JokeController {
         return "index";
     }
 
+    @GetMapping("/jokes/add")
+    public String showNewJokeForm(Model model) {
+        model.addAttribute("joke", new Joke());
+        return "add-update-joke";
+    }
+
+    @GetMapping("/jokes/edit/{id}")
+    public String showJokeFormForUpdate(@PathVariable(value = "id") Integer id, Model model) {
+        model.addAttribute("joke", jokeService.getJokeById(id));
+        return "add-update-joke";
+    }
+
     @PostMapping("/jokes/save")
     public String saveJoke(@ModelAttribute("joke") Joke joke) {
         jokeService.saveJoke(joke);
