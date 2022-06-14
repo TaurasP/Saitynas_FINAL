@@ -49,15 +49,15 @@ public class JokeServiceImpl implements JokeService {
         this.jokeRepository.deleteById(id);
     }
 
-    /*@Override
-    public String getWeatherForecastInVilnius() throws IOException, JSONException {
+    @Override
+    public String getRandomJoke() throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();
 
         Request request = new Request.Builder()
-                .url("https://yahoo-weather5.p.rapidapi.com/weather?location=vilnius&format=json&u=f")
+                .url("https://lithuanian-jokes.p.rapidapi.com/random")
                 .get()
                 .addHeader("X-RapidAPI-Key", "e888809ecemshfeb640a479bcb54p1c6e82jsn6b2d576abd25")
-                .addHeader("X-RapidAPI-Host", "yahoo-weather5.p.rapidapi.com")
+                .addHeader("X-RapidAPI-Host", "lithuanian-jokes.p.rapidapi.com")
                 .build();
 
         Response response = client.newCall(request).execute();
@@ -65,6 +65,6 @@ public class JokeServiceImpl implements JokeService {
         String jsonData = response.body().string();
         JSONObject jsonObject = new JSONObject(jsonData);
 
-        return jsonObject.getString("forecasts");
-    }*/
+        return jsonObject.getString("text");
+    }
 }

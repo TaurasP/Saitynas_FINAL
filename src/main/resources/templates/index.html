@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Juokeliai</title>
+    <script src="https://kit.fontawesome.com/008dc3c607.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link th:href="@{/css/main.css}" rel="stylesheet" type="text/css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript" th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<div class="container">
+    <div class="section">
+        <div class="row">
+            <div class="col-12">
+                <h2 class="text-center" style="padding-top: 30px;"></h2>
+            </div>
+        </div>
+        <br/>
+
+        <div class="row">
+            <div class="col-12">
+                <a class="text-center" th:text="${joke}"></a>
+            </div>
+        </div>
+    </div>
+
+    <!--<form action="#" th:action="@{/jokes/save}" th:object="${joke}" method="POST">
+        <a>Vardas</a>
+        <input type="text" th:field="*{joke.text}"
+               class="form-control mb-4 col-4">
+
+        <button type="submit" class="btn btn-info col-2">Išsaugoti juokelį</button>
+    </form>-->
+
+    <div class="row">
+        <div class="col-12 text-center" style="margin-top: 30px;">
+            <a th:href="@{/index}" class="btn btn-warning">Rodyti kitą juokelį</a>
+            <a th:href="@{/jokes}" class="btn btn-primary">Rodyti išsaugotus juokelius</a>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>
