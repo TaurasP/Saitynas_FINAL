@@ -25,6 +25,7 @@
                 <textarea rows="10" cols="120" class="col-12 text-center" style="border: 1px grey solid; margin-bottom: 10px;" type="text" th:field="*{text}"></textarea>
                 <button th:if="${joke.id == null}" type="submit" class="btn btn-info col-12 text-center"> Išsaugoti </button>
                 <button th:unless="${joke.id == null}" type="submit" class="btn btn-info col-12 text-center"> Atnaujinti </button>
+                <a th:href="@{/jokes}" class="btn btn-warning col-12 text-center" style="margin-top: 10px;"> Atšaukti </a>
             </form>
         </div>
 
