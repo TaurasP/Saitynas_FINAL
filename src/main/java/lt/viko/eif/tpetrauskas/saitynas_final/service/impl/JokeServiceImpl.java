@@ -15,22 +15,41 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * JokeServiceImpl implements methods which are defined on JokeService interface.
+ */
 @Service
 public class JokeServiceImpl implements JokeService {
 
     @Autowired
     private JokeRepository jokeRepository;
 
+    /**
+     * Gets the list of all jokes from DB.
+     *
+     * @return the list of jokes
+     */
     @Override
     public List<Joke> getAllJokes() {
         return jokeRepository.findAll();
     }
 
+    /**
+     * Saves joke to a DB.
+     *
+     * @param joke
+     */
     @Override
     public void saveJoke(Joke joke) {
         this.jokeRepository.save(joke);
     }
 
+    /**
+     * Gets joke by its id.
+     *
+     * @param id
+     * @return Joke object
+     */
     @Override
     public Joke getJokeById(Integer id) {
         Optional<Joke> optional = jokeRepository.findById(id);
@@ -43,11 +62,23 @@ public class JokeServiceImpl implements JokeService {
         return joke;
     }
 
+    /**
+     * Deletes joke by its id.
+     *
+     * @param id
+     */
     @Override
     public void deleteJokeById(Integer id) {
         this.jokeRepository.deleteById(id);
     }
 
+    /**
+     * Gets random joke from external jokes API.
+     *
+     * @return Joke object
+     * @throws IOException
+     * @throws JSONException
+     */
     @Override
     public Joke getRandomJoke() throws IOException, JSONException {
         OkHttpClient client = new OkHttpClient();

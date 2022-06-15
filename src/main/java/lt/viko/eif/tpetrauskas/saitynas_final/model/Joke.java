@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+/**
+ * Joke entity is used for joke's creation.
+ */
 @Entity
 @Getter
 @Setter

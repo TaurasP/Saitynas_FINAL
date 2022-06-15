@@ -6,6 +6,9 @@ import org.json.JSONException;
 import java.io.IOException;
 import java.util.List;
 
+/**
+ * JokeService is an interface used for JokeServiceImpl.
+ */
 public interface JokeService {
     Joke getRandomJoke() throws IOException, JSONException;
     List<Joke> getAllJokes();
