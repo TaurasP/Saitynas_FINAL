@@ -99,4 +99,29 @@ public class JokeServiceImpl implements JokeService {
         joke.setText(jsonObject.getString("text"));
         return joke;
     }
+
+    /**
+     * Gets random joke as JSON from external jokes API.
+     *
+     * @return String - joke in JSON
+     * @throws IOException
+     * @throws JSONException
+     */
+    @Override
+    public String getRandomJokeAsJSON() throws IOException, JSONException {
+        OkHttpClient client = new OkHttpClient();
+
+        Request request = new Request.Builder()
+                .url("https://lithuanian-jokes.p.rapidapi.com/random")
+                .get()
+                .addHeader("X-RapidAPI-Key", "e888809ecemshfeb640a479bcb54p1c6e82jsn6b2d576abd25")
+                .addHeader("X-RapidAPI-Host", "lithuanian-jokes.p.rapidapi.com")
+                .build();
+
+        Response response = client.newCall(request).execute();
+
+        String jsonData = response.body().string();
+
+        return jsonData;
+    }
 }

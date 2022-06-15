@@ -25,7 +25,7 @@ public class JokeRESTController {
      * @throws JSONException
      */
     @RequestMapping("/joke")
-    public String getRandomJoke() throws IOException, JSONException {
-        return jokeService.getRandomJoke().getText();
+    public String getRandomJokeAsJSON() throws IOException, JSONException {
+        return jokeService.getRandomJokeAsJSON();
     }
 }
