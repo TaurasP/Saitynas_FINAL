@@ -22,15 +22,8 @@
         <div>
             <form action="#" th:action="@{/jokes/save}" th:object="${joke}" method="POST">
                 <input th:if="${joke.id != null}" type="hidden" th:field="*{id}"/>
-                <a> Tekstas </a>
-                <!--<input type="text" th:field="*{text}"
-                       required placeholder="Name" class="form-control mb-4 col-4">-->
-
                 <textarea rows="10" cols="120" class="col-12 text-center" style="border: 1px grey solid; margin-bottom: 10px;" type="text" th:field="*{text}"></textarea>
-
-                <!-- Save button -->
                 <button th:if="${joke.id == null}" type="submit" class="btn btn-info col-12 text-center"> Išsaugoti </button>
-                <!-- Update button -->
                 <button th:unless="${joke.id == null}" type="submit" class="btn btn-info col-12 text-center"> Atnaujinti </button>
             </form>
         </div>
